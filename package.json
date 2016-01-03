@@ -1,0 +1,33 @@
+{
+  "name": "builder",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "electron ./app",
+    "test": "echo \"Error: no test specified\" && exit 1",
+
+    "dev": "electron ./app",
+
+    "clean": "rm -rf ./dist",
+    "clean:osx": "rm -rf ./dist/osx",
+    "clean:win": "rm -rf ./dist/win",
+ 
+    "pack": "npm run clean && npm run build:osx && npm run build:win",
+    "pack:osx": "npm run clean:osx && electron-packager ./app \"Google Photos\" --out=dist/osx --platform=darwin --arch=x64 --version=0.36.2 --icon=assets/osx/icon.icns",
+    "pack:win": "npm run clean:win && electron-packager ./app \"Google Photos\" --out=dist/win --platform=win32 --arch=ia32 --version=0.36.2 --icon=assets/win/icon.ico",
+ 
+    "build": "npm run pack:osx && npm run pack:win",
+    "build:osx": "npm run build:osx && electron-builder \"dist/osx/Google Photos.app\" --platform=osx --out=\"dist/osx\" --config=builder.json",
+    "build:win": "npm run build:win && electron-builder \"dist/win/Google Photos-win32\" --platform=win --out=\"dist/win\" --config=builder.json"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "electron-builder": "^2.5.0",
+    "electron-packager": "^5.2.0",
+    "electron-prebuilt": "^0.36.2",
+    "gulp": "^3.9.0"
+  }
+}
