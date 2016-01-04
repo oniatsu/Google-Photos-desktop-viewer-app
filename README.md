@@ -35,7 +35,7 @@ npm start # execute temporalilly
 ### Build
 
 ```bash
-npm archive # create *.app and *.exe, and the installer, and the zip archive
+npm run archive # create *.app and *.exe, and the installer, and the zip archive
 ```
 
 ### Commands
