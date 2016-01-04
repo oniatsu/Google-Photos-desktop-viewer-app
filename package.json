@@ -20,8 +20,8 @@
     "build:win": "npm run pack:win && electron-builder \"dist/win/Google Photos-win32-ia32\" --platform=win --out=\"dist/win\" --config=builder.json",
 
     "archive": "npm run archive:osx && npm run archive:win",
-    "archive:osx": "npm run build:osx && zip -j \"dist/osx/Google Photos-osx.zip\" \"dist/osx/Google Photos.dmg\"",
-    "archive:win": "npm run build:win && zip -j \"dist/win/Google Photos-win.zip\" \"dist/win/Google Photos Setup.exe\""
+    "archive:osx": "npm run build:osx && zip -j \"dist/osx/Google-Photos-osx.zip\" \"dist/osx/Google Photos.dmg\"",
+    "archive:win": "npm run build:win && zip -j \"dist/win/Google-Photos-win.zip\" \"dist/win/Google Photos Setup.exe\""
   },
   "keywords": [],
   "author": "",
