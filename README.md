@@ -1,5 +1,7 @@
 # Google-Photos-desktop-viewer-app
-Google Photos desktop viewer app using Electron.
+Google Photos desktop viewer app for OS X and Winddows.
+
+It uses Electron.
 
 [You can download the app right now](https://github.com/oniatsu/Google-Photos-desktop-viewer-app/releases).
 
