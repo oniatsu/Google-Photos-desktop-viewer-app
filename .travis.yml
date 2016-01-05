@@ -1,3 +1,57 @@
-language: node_js
-node_js:
-  - '4.1'
+language: objective-c
+#cache: 
+  #directories:
+    #- node_modules
+#env:
+  #- NODE_VERSION="4.1"
+#before_install:
+  #- git clone https://github.com/creationix/nvm.git /tmp/.nvm
+  #- source /tmp/.nvm/nvm.sh
+  #- nvm install $NODE_VERSION
+  #- nvm use --delete-prefix $NODE_VERSION
+  #- node --version
+#before_install:
+  #- npm install npm -g
+before_script:
+  #- brew update
+  #- brew upgrade xctool || true
+  #- brew install Caskroom/cask/xquartz
+  #- brew unlink libpng
+  - brew install libpng
+  #- brew update
+  #- brew install wine
+  #- wine --version
+  #- brew install curl
+  #- npm install
+#install:
+  #- npm install
+#script:
+  #- npm test
+  #- brew cleanup && brew prune
+  #- brew update && brew upgrade
+  #- brew install wine
+  #- brew install makensis
+  #- wine --version
+  #- npm run pack:win
+  #- npm run build:win
+  #- npm run archive:win
+#after_failure:
+  #- echo ">>>"
+  #- "[ -f /Users/travis/build/oniatsu/Google-Photos-desktop-viewer-app/npm-debug.log ] && cat /Users/travis/build/oniatsu/Google-Photos-desktop-viewer-app/npm-debug.log"
+#before_deploy:
+  #- brew update
+  #- brew install wine makensis
+  #- npm run archive:win
+deploy:
+  provider: releases
+  api_key:
+    secure: rHkNMAOFTOXoE2aiNw6YTOmfJUEE0Hk3PbljK0caHKlI0V/0J+cXbWDAn/+8key6DITVYAaRvpBNx5pI5SMibEaUPah1E5fPzSdHdcmpVO4FlPDyA/b4SSxXGittGKf3GrqdkgNNVI/oY4KuzFVU3ZXJTPbgRC858LlU0J9ni01GZ8Y1q2SKSOu4LAwHExbG4vHN9ysAVCr3+sCt56omQJFSOSxzwXhD7UtczYpreP3E0lQggfy5UtgTqvSlEM+ZOZOSX8DKltJx4fTV9ACt0HoYUdeIsCXq5JZVGT4hb6WFXV7wqkmbh3jXVh9TQ3jJVfaw/lRwrdiudd6K/2QY4tC79XoOKwitYGQ9td0y1CYgyBfjZG/PJ+X2n2ndKarUwZJeDnJ94j+Nco0q4esUZXjkhMvlftFOHa1uLMgfatElHKiao7zIlWdcyUkSJaT71cTOrgM2EBhWSE2OiP5UDzv3OEKHCFoUeoPAYap6s4vamacK/yW/JxTkOuqlaj6vWLTbxNAXjwOA5T6wisVbri7+LVUIAupi2nEt3DO7nk+nZ8be5bZgGnXmps7VUfLlk7mM9JOYYVjWlOAoChNp2OwJkXgIRfjLM7xtwXaV3S/mtbr85+jl//BogOdLLs1w/CWhBhbz4wWeincFugXLcqwWDUepA6mHW/gbAFxs7OA=
+  file: dist/osx/Google-Photos-osx.zip
+  on:
+    tags: true
+    repo: oniatsu/Google-Photos-desktop-viewer-app
+  skip_cleanup: true
+after_deploy:
+  - "[ -f /Users/travis/build/oniatsu/Google-Photos-desktop-viewer-app/npm-debug.log ] && cat /Users/travis/build/oniatsu/Google-Photos-desktop-viewer-app/npm-debug.log"
+after_script:
+  - "[ -f /Users/travis/build/oniatsu/Google-Photos-desktop-viewer-app/npm-debug.log ] && cat /Users/travis/build/oniatsu/Google-Photos-desktop-viewer-app/npm-debug.log"
